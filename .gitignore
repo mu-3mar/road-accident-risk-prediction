@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pkl
+*.joblib
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Environments
+.venv/
+venv/
+env/
+
+# Local artifacts / outputs
+artifacts/
+outputs/
+
+# Data
+data/
+
+# Models / training outputs
+models/
+checkpoints/
+weights/
