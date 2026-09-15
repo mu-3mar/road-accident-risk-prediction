@@ -1,25 +1,43 @@
-# Python
+# Python cache / compiled files
 __pycache__/
 *.py[cod]
-*.pkl
-*.joblib
+*.pyo
+*.pyd
+*$py.class
+*.so
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Testing / tooling cache
 .pytest_cache/
-.ruff_cache/
 .mypy_cache/
+.ruff_cache/
+.cache/
 
-# Environments
-.venv/
+# Virtual environments
 venv/
+.venv/
 env/
+ENV/
 
-# Local artifacts / outputs
-artifacts/
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Logs / temporary files
+*.log
+temp.html
+
+# Secrets / local environment
+.env
+.env.*
+!.env.example
+*.pem
+
+# Generated outputs
 outputs/
-
-# Data
-data/
-
-# Models / training outputs
-models/
-checkpoints/
-weights/
