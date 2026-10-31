@@ -54,6 +54,33 @@ To choose custom paths:
 PYTHONPATH=src python scripts/predict.py --input path/to/test.csv --output outputs/my_preds.csv
 ```
 
+## Web interface
+
+The `frontend/` directory is independent from the Python backend. It can be opened
+directly as `frontend/index.html` or served with any static file server. If the
+backend is not available, the interface uses a clearly labelled local heuristic so
+the form and result experience still work. When the API is running, the trained
+regression model is used automatically.
+
+Start the model API:
+
+```bash
+PYTHONPATH=src python scripts/server.py
+```
+
+In another terminal, optionally serve the frontend:
+
+```bash
+python -m http.server 5500 --directory frontend
+```
+
+Open `http://127.0.0.1:5500`. The API defaults to `http://127.0.0.1:8000`;
+override it with `?api=http://host:port` or the `roadguard-api` local-storage
+value. The API accepts the same fields as the training data:
+`road_type`, `num_lanes`, `curvature`, `speed_limit`, `lighting`, `weather`,
+`road_signs_present`, `public_road`, `time_of_day`, `holiday`, `school_season`,
+and `num_reported_accidents`.
+
 ## Notes
 
 - **Artifacts**: `artifacts/final_model.pkl`, `artifacts/scaler.pkl`, `artifacts/preprocessor.pkl`, `artifacts/feature_names.pkl`
