@@ -54,7 +54,7 @@ class PredictionHandler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    host = "127.0.0.1"
+    host = "0.0.0.0"
     port = 8000
     print(f"RoadGuard API listening on http://{host}:{port}")
     ThreadingHTTPServer((host, port), PredictionHandler).serve_forever()

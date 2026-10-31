@@ -1,3 +1,13 @@
-pandas
-numpy
-scikit-learn
+# Complete development and training environment.
+#
+# Keep the Docker image small by installing requirements-docker.txt there
+# instead of this file.
+-r requirements-docker.txt
+
+# Notebook, EDA, and model experimentation dependencies.
+jupyter
+matplotlib
+seaborn
+plotly
+scipy
+xgboost

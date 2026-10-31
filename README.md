@@ -21,7 +21,8 @@ Road-Accident-Risk/
       predictor.py
       training.py
       paths.py
-  requirements.txt
+  requirements.txt           # complete training and development environment
+  requirements-docker.txt    # minimal API/inference runtime
 ```
 
 ## Setup
@@ -30,6 +31,52 @@ Road-Accident-Risk/
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+```
+
+For the Docker image, install only the runtime dependencies:
+
+```bash
+pip install -r requirements-docker.txt
+```
+
+`requirements-docker.txt` contains the dependencies needed by the prediction
+API and batch inference. The full `requirements.txt` adds notebook, EDA, and
+model-experimentation packages such as Jupyter, plotting libraries, SciPy, and
+XGBoost.
+
+## Dockerization
+
+The prediction API is dockerized using the minimal runtime dependencies and
+the trained artifacts. The Docker Hub image is available at:
+
+[mu3mar/road-accident-risk-prediction](https://hub.docker.com/r/mu3mar/road-accident-risk-prediction)
+
+Build the image locally:
+
+```bash
+docker build -t mu3mar/road-accident-risk-prediction:latest .
+```
+
+Run the API container:
+
+```bash
+docker run -d \
+  --name road-accident-api \
+  -p 8000:8000 \
+  mu3mar/road-accident-risk-prediction:latest
+```
+
+Check that the API is ready:
+
+```bash
+curl http://127.0.0.1:8000/
+```
+
+To publish a locally built image to Docker Hub:
+
+```bash
+docker login
+docker push mu3mar/road-accident-risk-prediction:latest
 ```
 
 ## Train
