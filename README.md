@@ -11,6 +11,10 @@ lightweight HTTP API, a browser interface, and Docker support.
 > calibrated probability. The score is intended for educational and planning
 > purposes only; it is not a guarantee of road safety.
 
+## Demo
+
+https://github.com/user-attachments/assets/869e00ed-eab9-47ac-bcda-52fe426fb22a
+
 ## Results at a glance
 
 The final model was selected after comparing several regressors and tuning
